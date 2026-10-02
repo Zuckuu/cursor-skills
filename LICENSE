@@ -24,4 +24,4 @@ SOFTWARE.
 
 This repository also contains third-party skills under `.cursor/skills/` with
 their own licenses. See SOURCES.md and per-skill LICENSE.txt files. Original
-skills in this pack: bulletproof-payment-gateway, production-ai-engineering, token-budget, borrow-a-repo.
+skill text in this pack: bulletproof-payment-gateway, production-ai-engineering, token-budget, borrow-a-repo, find-a-repo, shader-gradient, liquid-logo, liquid-glass, react-three-fiber.

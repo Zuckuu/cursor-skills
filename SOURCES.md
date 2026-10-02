@@ -34,7 +34,12 @@ Each row is one folder under `.cursor/skills/` with a `SKILL.md`. Upstream URLs 
 | `bulletproof-payment-gateway` | **Original to this pack** | MIT ([LICENSE](LICENSE)) |
 | `production-ai-engineering` | **Original to this pack** | MIT ([LICENSE](LICENSE)) |
 | `token-budget` | **Original to this pack** | MIT ([LICENSE](LICENSE)) |
-| `borrow-a-repo` | **Original to this pack** (example reference repos: [shadergradient](https://github.com/ruucm/shadergradient), [liquid-logo](https://github.com/paper-design/liquid-logo), [liquid-glass-js](https://github.com/dashersw/liquid-glass-js), [react-three-fiber](https://github.com/pmndrs/react-three-fiber) — not vendored) | MIT ([LICENSE](LICENSE)) |
+| `borrow-a-repo` | **Original to this pack** (integration method; points to effect skills below) | MIT ([LICENSE](LICENSE)) |
+| `find-a-repo` | **Original to this pack** | MIT ([LICENSE](LICENSE)) |
+| `shader-gradient` | How-to derived from [ruucm/shadergradient](https://github.com/ruucm/shadergradient) README/npm (`@shadergradient/react`); **MIT** upstream | MIT ([LICENSE](LICENSE)) for skill text |
+| `liquid-logo` | How-to derived from [paper-design/liquid-logo](https://github.com/paper-design/liquid-logo) public app structure; upstream **PolyForm Shield 1.0.0** — read upstream LICENSE before commercial port | MIT ([LICENSE](LICENSE)) for skill text only |
+| `liquid-glass` | How-to derived from [dashersw/liquid-glass-js](https://github.com/dashersw/liquid-glass-js) README/API; upstream **MIT** | MIT ([LICENSE](LICENSE)) for skill text |
+| `react-three-fiber` | How-to derived from [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber) readme/npm; upstream **MIT** | MIT ([LICENSE](LICENSE)) for skill text |
 
 ## Removed from this pack (vs earlier snapshots)
 
