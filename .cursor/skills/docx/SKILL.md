@@ -77,11 +77,11 @@ Comments require six cross-linked files. Use the helper — directory mode when 
 
 ```bash
 # Against an already-unpacked directory (preferred when also placing markers)
-python scripts/comment.py unpacked/ "Fees & expenses cap is too low"
-python scripts/comment.py unpacked/ "Agreed" --parent 0
+python scripts/comment.py unpacked/ "Fees & expenses cap is too low" --author "Legal Review" --initials "LR"
+python scripts/comment.py unpacked/ "Agreed" --parent 0 --author "Legal Review" --initials "LR"
 
 # Against a .docx directly
-python scripts/comment.py contract.docx "This cap is too low" -o annotated.docx
+python scripts/comment.py contract.docx "This cap is too low" -o annotated.docx --author "Legal Review" --initials "LR"
 ```
 
 The script writes `comments.xml`, `commentsExtended.xml`, `commentsIds.xml`, `commentsExtensible.xml`, the relationships, and the content-type overrides. Comment IDs are auto-assigned. It then prints the `<w:commentRangeStart>`/`<w:commentRangeEnd>`/`<w:commentReference>` snippet to add to `word/document.xml` so the comment anchors to specific text — until you place those markers, the comment exists but is not visible.
@@ -89,3 +89,5 @@ The script writes `comments.xml`, `commentsExtended.xml`, `commentsIds.xml`, `co
 ## Dependencies
 
 `docx` (npm, preinstalled — install only if `require('docx')` fails) · `pandoc` · LibreOffice (`soffice`) · `pdftoppm` (Poppler)
+
+**Pack layout:** `scripts/office` is a symlink to `../shared-ooxml/office` (one shared OOXML schema tree for docx/pptx/xlsx). Copy `shared-ooxml/` when vendoring this skill.

@@ -1,33 +1,65 @@
 ---
 name: git-pushing
-description: Stage, commit, and push git changes with conventional commit messages. Use when user wants to commit and push changes, mentions pushing to remote, or asks to save and push their work. Also activates when user says "push changes", "commit and push", "push this", "push to github", or similar git workflow requests.
+description: Use when the user explicitly asks to commit and/or push specific work to the remote, after you have confirmed which changes belong in that commit.
 ---
 
-# Git Push Workflow
+# Git commit and push (explicit scope)
 
-Stage all changes, create a conventional commit, and push to the remote branch.
+Do **not** run `git add -A` or push by default. The user may have other local changes. Show what you will run and scope staging to the work they asked to ship.
 
-## When to Use
+## When to use
 
-Automatically activate when the user:
-- Explicitly asks to push changes ("push this", "commit and push")
-- Mentions saving work to remote ("save to github", "push to remote")
-- Completes a feature and wants to share it
-- Says phrases like "let's push this up" or "commit these changes"
+- User clearly asks to commit and/or push **this feature**, **these files**, or **the current branch**
+- User names a commit message or says "commit and push" **for the work we just did**
+
+## When not to use
+
+- Vague "push this" while unrelated edits exist — run `git status` first and ask what to include
+- User only wanted a local commit without push
+- User did not ask to push — stop after commit unless they said push
 
 ## Workflow
 
-Run from the **repository root**. Prefer the bundled script for a consistent conventional commit and push:
+1. **Inspect**
 
 ```bash
-bash .cursor/skills/git-pushing/scripts/smart_commit.sh
+git status
+git diff          # unstaged
+git diff --cached # staged
 ```
 
-With a custom message:
+2. **Confirm scope** with the user if more than one logical change appears, or if untracked files are unrelated.
+
+3. **Stage only intended paths** (examples):
+
 ```bash
-bash .cursor/skills/git-pushing/scripts/smart_commit.sh "feat: add feature"
+git add path/to/changed-file.ts path/to/other/
+# not: git add -A
 ```
 
-If the project uses a different skills path, adjust the path or copy the script locally. The script handles staging, conventional commit message generation, and `git push -u` when needed.
+4. **Commit** (conventional message if the repo uses it):
 
-When the user only wants a commit without push, or needs a signed commit, use explicit git commands instead of the script.
+```bash
+git commit -m "feat: short description of this change only"
+```
+
+5. **Push only if the user asked to push**:
+
+```bash
+git push -u origin "$(git branch --show-current)"
+```
+
+If the branch has no upstream, `-u` sets it; otherwise a plain `git push` is enough.
+
+## Safety rules
+
+- Never push to `main`/`master` unless the user explicitly requested that branch
+- Never force-push unless the user explicitly requests it and understands the risk
+- If hooks or CI failed locally, do not push until the user wants to proceed anyway
+- Prefer showing the exact commands above over hiding them in a script
+
+## Optional helper script
+
+`scripts/smart_commit.sh` stages **all** changes and pushes — **do not use**
+unless the user explicitly wants every modified file committed and pushed.
+Prefer the manual steps in this skill.

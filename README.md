@@ -1,6 +1,6 @@
 # Portable Cursor Agent Skills pack
 
-**Token cost:** Installing this entire pack into `~/.cursor/skills/` puts **every skill’s description** into **every** chat on that machine. Copy only the skill folders you will actually use, or install per-repo under `.cursor/skills/`, instead of dropping all **31** skills globally.
+**Token cost:** Installing this entire pack into `~/.cursor/skills/` puts **every skill’s description** into **every** chat on that machine. Copy only the skill folders you will actually use, or install per-repo under `.cursor/skills/`, instead of dropping all **29** skills globally.
 
 Drop-in **Agent Skills** for Cursor: each skill is a folder under `.cursor/skills/<skill-name>/` with a `SKILL.md` (YAML frontmatter + markdown instructions). Cursor loads skill **names and descriptions** at startup; when a task matches a description, the agent reads that skill’s full body.
 
@@ -18,6 +18,8 @@ Pick one approach:
    ```bash
    cp -R /path/to/this-repo/.cursor/skills /path/to/your-project/.cursor/skills
    ```
+
+   Document skills (`docx`, `pptx`, `xlsx`) symlink `scripts/office` to [`shared-ooxml/`](.cursor/skills/shared-ooxml/) — keep that folder when copying those skills.
 
    If your project already has `.cursor/skills/`, copy individual skill **folders** instead of overwriting the entire directory.
 
@@ -68,9 +70,10 @@ For compatibility, Cursor also loads `.claude/skills/`, `.codex/skills/`, and th
 
 Skills are **not** imported by pasting a GitHub URL alone; for marketplace-style distribution you package skills in a [Cursor plugin](https://cursor.com/docs/plugins). For most teams, committing `.cursor/skills/` is enough.
 
-## What’s in this pack (31 skills)
+## What’s in this pack (29 skills)
 
-- **Anthropic official examples** (development, documents, MCP, testing, comms) — adapted wording for Cursor agents where needed.
+- **Anthropic official examples** (documents, MCP, testing, frontend design) — adapted for Cursor where noted; shared OOXML tooling under `shared-ooxml/`.
+- **Skill authoring:** `skill-creator` (Cursor-focused), `token-budget` (context cost).
 - **Superpowers workflow** (brainstorming, plans, execution, subagents, parallel dispatch, TDD, debugging, code review, git worktrees) from [obra/superpowers](https://github.com/obra/superpowers).
 - **Curated engineering skills** (git push hygiene, test fixing, security review) from community repos listed in SOURCES.md.
 - **Short-form video** (TikTok/Reels/Shorts retention + caption animation) from [iart-ai/tiktok-video-skills](https://github.com/iart-ai/tiktok-video-skills).

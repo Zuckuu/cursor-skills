@@ -293,16 +293,16 @@ The user will need to do the testing manually.
 
 ### Step 1: Predict Reader Questions
 
-Ask what questions people might ask when trying to discover this document. What would they type into the agent.ai?
+Ask what questions people might ask when trying to discover this document. What would they type into a search box or chat?
 
 Generate 5-10 questions that readers would realistically ask.
 
 ### Step 2: Setup Testing
 
 Provide testing instructions:
-1. Open a a fresh agent session conversation: https://claude.ai
-2. Paste or share the document content (if using a shared doc platform with connectors enabled, provide the link)
-3. Ask Reader agent the generated questions
+1. Start a **new agent chat** (or Task subagent) with **no** prior thread context — only the document text or link
+2. Paste or share the document content (or a link if the repo uses shared docs the agent can read)
+3. Ask the reader agent the generated questions
 
 For each question, instruct Reader agent to provide:
 - The answer

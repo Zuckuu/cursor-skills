@@ -216,8 +216,7 @@ in this session — not inferred from the diff looking right:
 - Every `Expected:` line in the brief was compared against real output.
 - Every deviation from the brief has a `Ruling:` line in the ledger.
 
-**REQUIRED SUB-SKILL:** superpowers:verification-before-completion governs
-the claim. If any item is missing, the task is not complete: finish it.
+**Verification gate (required before claiming a task done):** run the task’s proof command fresh, read exit code and output, then claim pass/fail with evidence — no "should work" without a run. If any checklist item above is missing, the task is not complete: finish it.
 
 ### 4. Complete the task
 

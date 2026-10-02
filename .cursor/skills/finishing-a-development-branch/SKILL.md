@@ -158,47 +158,42 @@ git branch -D <feature-branch>
 
 ## Step 6: Cleanup Workspace
 
-**Runs for Option 1 and confirmed discards.** Options 2 and 3 always
-preserve the worktree. Both callers have already changed directory to the
-main repo root — worktree removal must run from outside the worktree —
-and use the `GIT_DIR`/`GIT_COMMON`/`WORKTREE_PATH` values captured in
-Step 2, from before that directory change.
+**Runs for Option 1 and confirmed discards only.** Options 2 and 3 always
+preserve the worktree.
 
 **If `GIT_DIR == GIT_COMMON`:** Normal repo, no worktree to clean up. Done.
 
-**If `WORKTREE_PATH` is under `.worktrees/` or `worktrees/`:** Superpowers
-created this worktree — we own cleanup:
+**If `GIT_DIR != GIT_COMMON` (detached or linked worktree):** Do **not**
+remove a worktree because of its path (`.worktrees/`, `worktrees/`, or
+any other directory). **Only** run `git worktree remove` when **both** are
+true:
+
+1. Your human partner **named this worktree path** in the current task
+   (e.g. they said to remove `../my-feature-worktree` or confirmed the
+   exact path from Step 2), **or** they typed `discard` in the discard flow
+   and the path was shown in the confirmation block.
+2. You are executing Option 1 merge cleanup or a confirmed discard — not
+   Option 2 or 3.
+
+If those conditions are not met, **leave the worktree in place** and tell
+your partner where it lives (`WORKTREE_PATH` from Step 2).
+
+When removal **is** authorized:
 
 ```bash
 git worktree remove "$WORKTREE_PATH"
-git worktree prune  # Self-healing: clean up any stale registrations
+git worktree prune
 ```
 
-**If removal is refused** (`contains modified or untracked files`): the
-worktree holds files that exist nowhere else — uncommitted plans, notes,
-or scratch work. Never `--force` on your own initiative. Show your human
-partner what is at stake and ask:
+Never use `git worktree remove --force` unless your human partner explicitly
+requests it after seeing what would be deleted.
+
+**If removal is refused** (`contains modified or untracked files`): show
+status and ask what to do — commit, move files, or abort removal:
 
 ```bash
 git -C "$WORKTREE_PATH" status --porcelain -uall
 ```
-
-```
-Worktree removal refused — these files were never committed:
-
-<file list>
-
-1. Commit them to <branch> before cleanup
-2. Move them into <main repo root>
-3. Delete them (unrecoverable)
-
-Which?
-```
-
-Carry out the choice, then remove the worktree.
-
-**Otherwise:** The host environment owns this workspace — leave it in
-place. If your platform provides a workspace-exit tool, use it.
 
 ## Quick Reference
 
@@ -218,7 +213,7 @@ place. If your platform provides a workspace-exit tool, use it.
 | "They seem done with this feature — I'll offer to discard it" | The menu is complete as written. Discard happens only when your human partner asks for it in so many words. |
 | "'Yeah, get rid of it' counts as confirmation" | Only the typed word `discard` authorizes deletion. |
 | "The PR is up, so the worktree is clutter now" | PR feedback gets fixed in that worktree. It stays until the work lands. |
-| "This other worktree looks stale — I'll clean it too" | Clean up only worktrees under `.worktrees/` or `worktrees/`. Everything else belongs to the host. |
+| "This other worktree looks stale — I'll clean it too" | Remove only a worktree path the user named or confirmed in this task — never infer from directory name. |
 | "Removal refused — `--force` is just finishing the cleanup" | The refusal means files exist only in that worktree. `--force` destroys them permanently. Show your human partner and ask. |
 | "The merged-result failure is probably flaky" | A failing merged result stops everything. Branch and worktree stay put while you investigate. |
 | "The base branch is obviously main" | Confirm the fork point or ask. Merging into the wrong base is expensive to undo. |
