@@ -58,8 +58,7 @@ If the branch has no upstream, `-u` sets it; otherwise a plain `git push` is eno
 - If hooks or CI failed locally, do not push until the user wants to proceed anyway
 - Prefer showing the exact commands above over hiding them in a script
 
-## Optional helper script
+## Helper script (disabled)
 
-`scripts/smart_commit.sh` stages **all** changes and pushes — **do not use**
-unless the user explicitly wants every modified file committed and pushed.
-Prefer the manual steps in this skill.
+`scripts/smart_commit.sh` exits immediately with instructions. It does not
+stage, commit, or push. Always use the manual steps above.
