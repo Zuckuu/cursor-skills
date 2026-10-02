@@ -34,6 +34,7 @@ Each row is one folder under `.cursor/skills/` with a `SKILL.md`. Upstream URLs 
 | `bulletproof-payment-gateway` | **Original to this pack** | MIT ([LICENSE](LICENSE)) |
 | `production-ai-engineering` | **Original to this pack** | MIT ([LICENSE](LICENSE)) |
 | `token-budget` | **Original to this pack** | MIT ([LICENSE](LICENSE)) |
+| `borrow-a-repo` | **Original to this pack** (example reference repos: [shadergradient](https://github.com/ruucm/shadergradient), [liquid-logo](https://github.com/paper-design/liquid-logo), [liquid-glass-js](https://github.com/dashersw/liquid-glass-js), [react-three-fiber](https://github.com/pmndrs/react-three-fiber) — not vendored) | MIT ([LICENSE](LICENSE)) |
 
 ## Removed from this pack (vs earlier snapshots)
 
