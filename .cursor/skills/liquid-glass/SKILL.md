@@ -1,66 +1,42 @@
 ---
 name: liquid-glass
-description: Use when the user wants Apple-style frosted liquid glass UI (refraction, blur, nested glass) in vanilla JavaScript without a React build step.
+description: Use when the user wants Apple-style frosted liquid glass UI (refraction, blur, nested glass) and you need to explain dashersw/liquid-glass-js — not copy its source into their project.
 ---
 
-# Liquid Glass JS
+# Liquid Glass JS (reference)
 
 Upstream: [dashersw/liquid-glass-js](https://github.com/dashersw/liquid-glass-js) (**MIT**). Demo: [dashersw.github.io/liquid-glass-js](https://dashersw.github.io/liquid-glass-js/).
 
-WebGL-based **`Container`** and **`Button`** classes — no bundler required. Depends on **html2canvas** for sampling page content behind glass (load from CDN).
+WebGL-based **`Container`** and **`Button`** classes for vanilla JavaScript — no React required. The demo uses **html2canvas** to sample page content behind the glass (typically loaded from a CDN in upstream examples).
 
-## Quick setup (static HTML)
+## Install path
 
-```html
-<link rel="stylesheet" href="styles.css" />
-<link rel="stylesheet" href="glass.css" />
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-<script src="container.js"></script>
-<script src="button.js"></script>
-```
+There is **no official npm package** for this library in the upstream README. Upstream distribution is **source files in the GitHub repo** (`container.js`, `button.js`, `glass.css`, `styles.css`, plus optional `controls.js` for the demo).
 
-Copy **`container.js`**, **`button.js`**, **`glass.css`**, and **`styles.css`** from the repo release/tag you audited (only these files — not the whole repo). Or serve them from your static assets folder.
+**Do not copy those files into the user's project.** If the user needs this exact effect without vendoring upstream source themselves, options are:
 
-## Minimal API
+- Use the **[live demo](https://dashersw.github.io/liquid-glass-js/)** as reference and build a similar effect with their stack, or
+- Pick a **maintained npm alternative** (frosted glass via CSS `backdrop-filter`, a WebGL UI library, or React component libraries) via **`find-a-repo`**, or
+- Have the user **manually** download upstream files outside agent-driven copying — this skill does not instruct the agent to write upstream JS/CSS into the repo.
 
-**Glass button:**
+## What the API looks like (for evaluation only)
 
-```javascript
-const button = new Button({
-  text: 'Save',
-  size: 28,
-  type: 'pill', // 'rounded' | 'circle' | 'pill'
-  tintOpacity: 0.3,
-  onClick: () => { /* ... */ },
-})
-document.body.appendChild(button.element)
-```
+Summarized from upstream docs so the user knows what they're evaluating:
 
-**Nested glass container:**
+**Glass button:** `new Button({ text, size, type: 'pill'|'rounded'|'circle', tintOpacity, onClick })` → append `button.element`.
 
-```javascript
-const container = new Container({
-  borderRadius: 24,
-  type: 'pill',
-  tintOpacity: 0.3,
-})
-container.addChild(someButtonInstance)
-document.body.appendChild(container.element)
-```
+**Nested container:** `new Container({ borderRadius, type, tintOpacity })`, `addChild(buttonInstance)`, append `container.element`.
 
-**Container options:** `borderRadius`, `type` (`rounded` | `circle` | `pill`), `tintOpacity` (0–1).  
-**Button adds:** `text`, `size` (font px), `onClick`, optional `warp` (center distortion).
-
-Live demo uses **`controls.js`** to tweak edge/rim/blur parameters — optional; start with defaults.
+**Container options:** `borderRadius`, `type`, `tintOpacity` (0–1). **Button adds:** `text`, `size`, `onClick`, optional `warp`.
 
 ## When not to use
 
-- React/Vue SPA where a component library fits better (unless you wrap these classes in a thin adapter)
+- React/Vue SPA where a component library or CSS glass is enough
 - No WebGL (very old browsers)
-- Strict CSP blocking inline WebGL or html2canvas
-- Accessibility-critical controls where custom WebGL buttons replace native `<button>` without a fallback plan
-- Performance-sensitive pages with many glass instances on low-end mobile
+- Strict CSP blocking WebGL or html2canvas
+- Accessibility-critical controls where custom WebGL replaces native `<button>` without a fallback
+- Many glass instances on low-end mobile (performance)
 
-## Integration
+## Integration in this pack
 
-Use **`borrow-a-repo`**: copy only the JS/CSS listed above into `public/` or static assets; wire one page section; verify in target browsers. Do not vendor `demo.gif` or the full repo.
+Use **`borrow-a-repo`** to confirm MIT fits the user's use case and explain that integration is **npm/alternatives or user-managed upstream download** — not agent file copy from [dashersw/liquid-glass-js](https://github.com/dashersw/liquid-glass-js).

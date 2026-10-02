@@ -75,4 +75,4 @@ Add **`@react-three/drei`** only when you need helpers (controls, loaders, envir
 
 ## Integration
 
-Follow **`borrow-a-repo`**: npm deps only, one `Canvas` subtree, no copy of the upstream monorepo. For gradients-on-mesh backgrounds, combine with `@shadergradient/react` (see **`shader-gradient`**) instead of duplicating shader code.
+npm deps only, one `Canvas` subtree, no copy of the upstream monorepo. For gradients-on-mesh backgrounds, combine with `@shadergradient/react` (see **`shader-gradient`**) instead of duplicating shader code from GitHub.

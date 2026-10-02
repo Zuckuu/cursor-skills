@@ -60,4 +60,4 @@ Controls/UI live in **`@shadergradient/ui`** (not always on npm as a full packag
 
 ## Integrating in the host project
 
-Follow **`borrow-a-repo`**: add npm deps only, one background component, client-only boundary in SSR apps (`'use client'` in Next). Do not copy the upstream monorepo.
+Add npm deps only, one background component, client-only boundary in SSR apps (`'use client'` in Next). Do not copy the upstream monorepo or vend source from GitHub.

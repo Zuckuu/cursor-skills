@@ -1,13 +1,13 @@
 ---
 name: find-a-repo
-description: Use when the user describes an effect, library, or feature they want but has not named a GitHub repository to use as reference.
+description: Use when the user describes an effect, library, or feature they want but has not named a GitHub repository — you search and recommend options, not copy code.
 ---
 
 # Find a fitting reference repo
 
-Help the user pick **one or two maintained GitHub repos** to study — then adapt the smallest piece using **`borrow-a-repo`** and the matching library skill if this pack includes it (`shader-gradient`, `liquid-logo`, `liquid-glass`, `react-three-fiber`).
+Help the user pick **one or two maintained GitHub repos** to **evaluate** — with URL, license, and why each fits. Stop at recommendation; **do not** clone, copy, port, merge, or hand off to a "copy smallest slice" step.
 
-**Do not** clone or copy a whole repository into the user’s project.
+If a match exists in this pack, mention the corresponding skill for **npm-safe** integration only (`shader-gradient`, `react-three-fiber`, `liquid-glass`, `liquid-logo`).
 
 ## Steps
 
@@ -18,38 +18,40 @@ Help the user pick **one or two maintained GitHub repos** to study — then adap
    - Sort by **recently updated** or **stars**; open the top 5–10 candidates
 
 3. **Filter each candidate**
-   - **License:** MIT/Apache/BSD usually OK for study + npm use; read custom licenses (PolyForm, BSL, “non-commercial”) and reject if incompatible
-   - **Maintenance:** Commits or releases in the last ~12 months; README install steps work
-   - **Scope:** Library or focused demo — not a 500-star “awesome list”, course repo, or marketing funnel
-   - **Stack:** Matches the user’s project (React 18/19, R3F version, etc.)
+   - **License:** MIT/Apache/BSD often OK for npm dependency use; flag PolyForm, BSL, NC licenses and explain impact
+   - **Maintenance:** Commits or releases in the last ~12 months; README install steps plausible
+   - **Scope:** Library or focused demo — not an awesome-list, course repo, or marketing funnel
+   - **Stack:** Matches the user's project when possible
 
-4. **Prefer pack skills when they fit**
-   - Moving 3D gradient background → **`shader-gradient`**
-   - Liquid metal logo → **`liquid-logo`**
-   - Frosted glass UI, no build step → **`liquid-glass`**
-   - General React 3D → **`react-three-fiber`**
+4. **Map to pack skills (when relevant)**
+   - Moving 3D gradient → **`shader-gradient`** (npm)
+   - General React 3D → **`react-three-fiber`** (npm)
+   - Frosted glass UI → **`liquid-glass`** (see that skill — may be no npm)
+   - Liquid metal logo aesthetic → **`liquid-logo`** (reference + license warning only)
 
-5. **Present 1–2 winners** to the user:
+5. **Present 1–2 winners**
 
 ```text
 Recommendation:
 1. <owner/repo> — <URL>
-   Why: <license>, <last activity>, <matches stack>, <implements the effect>
+   License: <SPDX or name> — <one-line fit for user's use case>
+   Why: <maintenance>, <stack match>, <implements the effect>
+   Use via: <npm package name if any, or "no npm; see liquid-glass / liquid-logo skill">
 2. (optional alternate)
 
-Next: I can open a disposable branch and port the smallest API using borrow-a-repo + <skill-name>.
+Next: User can install via npm where available, or read upstream README/demo. I will not copy upstream source into this project.
 ```
 
-6. **If nothing passes filters** — say what failed (license, stale, wrong stack) and ask one clarifying question (framework or “npm-only ok?”).
+6. **If nothing passes filters** — Say what failed (license, stale, wrong stack) and ask one clarifying question (framework or "npm-only ok?").
 
 ## Reject
 
 - Abandoned repos (no commits >2 years, broken README)
-- License forbids your use case
-- “Install our CLI / join Discord to unlock” funnels
-- Repos that are entire alternate products (TokPortal-style account farming, paid coaching shells)
-- Copying monorepo demo apps when an npm package exists (`npm i` first)
+- License forbids the user's stated use case
+- "Install our CLI / join Discord to unlock" funnels
+- Repos that are entire alternate products unrelated to the effect
+- Recommending "copy the demo app" when an npm package exists — prefer **`npm i <package>`** and the matching pack skill
 
 ## After the user picks a repo
 
-Load **`borrow-a-repo`** and the relevant effect skill; implement the **smallest** integration on a branch; run build/tests before merge.
+Load **`borrow-a-repo`** to summarize license and install path, or the relevant effect skill if they want to integrate via **npm only**. Do **not** copy or merge upstream files into the project.
