@@ -28,7 +28,8 @@ Each row is one folder under `.cursor/skills/` with a `SKILL.md`. Upstream URLs 
 | `git-pushing` | [mhattingpete/claude-skills-marketplace — git-pushing](https://github.com/mhattingpete/claude-skills-marketplace/tree/main/engineering-workflow-plugin/skills/git-pushing) (rewritten for explicit staging/push) | Apache-2.0 (`LICENSE.txt`) |
 | `test-fixing` | [mhattingpete/claude-skills-marketplace — test-fixing](https://github.com/mhattingpete/claude-skills-marketplace/tree/main/engineering-workflow-plugin/skills/test-fixing) | Apache-2.0 (`LICENSE.txt`) |
 | `review-implementing` | [mhattingpete/claude-skills-marketplace — review-implementing](https://github.com/mhattingpete/claude-skills-marketplace/tree/main/engineering-workflow-plugin/skills/review-implementing) | Apache-2.0 (`LICENSE.txt`) |
-| `security-best-practices` | [openai/skills — security-best-practices](https://github.com/openai/skills/tree/main/skills/.curated/security-best-practices) | Apache-2.0 (`LICENSE.txt`; `agents/openai.yaml` removed — not used by Cursor) |
+| `security-best-practices` | [openai/skills — security-best-practices](https://github.com/openai/skills/tree/main/skills/.curated/security-best-practices) references retained; **SKILL.md rewritten** for pre-merge security pass, five review areas, findings-only (no exploit steps) | Apache-2.0 (`LICENSE.txt`; `agents/openai.yaml` removed — not used by Cursor) |
+| `legal-compliance` | **Original to this pack** | MIT ([LICENSE](LICENSE)) |
 | `short-form-video` | [iart-ai/tiktok-video-skills — short-form-video](https://github.com/iart-ai/tiktok-video-skills/tree/main/skills/short-form-video) | MIT (`LICENSE.txt`) |
 | `caption-animation` | [iart-ai/tiktok-video-skills — caption-animation](https://github.com/iart-ai/tiktok-video-skills/tree/main/skills/caption-animation) | MIT (`LICENSE.txt`) |
 | `bulletproof-payment-gateway` | **Original to this pack** | MIT ([LICENSE](LICENSE)) |

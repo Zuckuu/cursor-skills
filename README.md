@@ -1,6 +1,6 @@
 # Portable Cursor Agent Skills pack
 
-**Token cost:** Installing this entire pack into `~/.cursor/skills/` puts **every skill’s description** into **every** chat on that machine. Copy only the skill folders you will actually use, or install per-repo under `.cursor/skills/`, instead of dropping all **35** skills globally.
+**Token cost:** Installing this entire pack into `~/.cursor/skills/` puts **every skill’s description** into **every** chat on that machine. Copy only the skill folders you will actually use, or install per-repo under `.cursor/skills/`, instead of dropping all **36** skills globally.
 
 Drop-in **Agent Skills** for Cursor: each skill is a folder under `.cursor/skills/<skill-name>/` with a `SKILL.md` (YAML frontmatter + markdown instructions). Cursor loads skill **names and descriptions** at startup; when a task matches a description, the agent reads that skill’s full body.
 
@@ -70,7 +70,7 @@ For compatibility, Cursor also loads `.claude/skills/`, `.codex/skills/`, and th
 
 Skills are **not** imported by pasting a GitHub URL alone; for marketplace-style distribution you package skills in a [Cursor plugin](https://cursor.com/docs/plugins). For most teams, committing `.cursor/skills/` is enough.
 
-## What’s in this pack (35 skills)
+## What’s in this pack (36 skills)
 
 - **Anthropic official examples** (documents, MCP, testing, frontend design) — adapted for Cursor where noted; shared OOXML tooling under `shared-ooxml/`.
 - **Skill authoring:** `skill-creator` (Cursor-focused), `token-budget` (context cost).
@@ -78,7 +78,7 @@ Skills are **not** imported by pasting a GitHub URL alone; for marketplace-style
 - **Superpowers workflow** (brainstorming, plans, execution, subagents, parallel dispatch, TDD, debugging, code review, git worktrees) from [obra/superpowers](https://github.com/obra/superpowers).
 - **Curated engineering skills** (git push hygiene, test fixing, security review) from community repos listed in SOURCES.md.
 - **Short-form video** (TikTok/Reels/Shorts retention + caption animation) from [iart-ai/tiktok-video-skills](https://github.com/iart-ai/tiktok-video-skills).
-- **Original:** `bulletproof-payment-gateway`, `production-ai-engineering`, `token-budget`, `borrow-a-repo`, `find-a-repo`, and the four effect guide skills (derived from public READMEs/APIs; see SOURCES.md).
+- **Original:** `bulletproof-payment-gateway`, `production-ai-engineering`, `token-budget`, `borrow-a-repo`, `find-a-repo`, `legal-compliance`, and the four effect guide skills (derived from public READMEs/APIs; see SOURCES.md).
 
 ## Format
 
@@ -86,4 +86,4 @@ Skills follow the [Agent Skills specification](https://agentskills.io/specificat
 
 ## License
 
-Original skills in this pack (`bulletproof-payment-gateway`, `production-ai-engineering`, `token-budget`, `borrow-a-repo`, `find-a-repo`, `shader-gradient`, `liquid-logo`, `liquid-glass`, `react-three-fiber`) are MIT — see [LICENSE](LICENSE). Effect guides summarize upstream projects; upstream licenses still apply to their code when you install or port from them. Upstream skills retain their own licenses; see [SOURCES.md](SOURCES.md) and each skill’s `LICENSE.txt` where present.
+Original skills in this pack (`bulletproof-payment-gateway`, `production-ai-engineering`, `token-budget`, `borrow-a-repo`, `find-a-repo`, `legal-compliance`, `shader-gradient`, `liquid-logo`, `liquid-glass`, `react-three-fiber`) are MIT — see [LICENSE](LICENSE). Effect guides summarize upstream projects; upstream licenses still apply to their code when you install or port from them. Upstream skills retain their own licenses; see [SOURCES.md](SOURCES.md) and each skill’s `LICENSE.txt` where present.
