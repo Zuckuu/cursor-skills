@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 Zack (portable skills pack maintainer)
+Copyright (c) 2025 Jesse Vincent
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,9 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-This repository also contains third-party skills under `.cursor/skills/` with
-their own licenses. See SOURCES.md and per-skill LICENSE.txt files. Original
-skills in this pack: bulletproof-payment-gateway, production-ai-engineering, token-budget.

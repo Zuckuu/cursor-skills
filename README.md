@@ -1,5 +1,7 @@
 # Portable Cursor Agent Skills pack
 
+**Token cost:** Installing this entire pack into `~/.cursor/skills/` puts **every skill’s description** into **every** chat on that machine. Copy only the skill folders you will actually use, or install per-repo under `.cursor/skills/`, instead of dropping all **31** skills globally.
+
 Drop-in **Agent Skills** for Cursor: each skill is a folder under `.cursor/skills/<skill-name>/` with a `SKILL.md` (YAML frontmatter + markdown instructions). Cursor loads skill **names and descriptions** at startup; when a task matches a description, the agent reads that skill’s full body.
 
 This repo’s main deliverable is the [`.cursor/skills/`](.cursor/skills/) tree. See [SOURCES.md](SOURCES.md) for upstream attribution and licenses.
@@ -66,11 +68,13 @@ For compatibility, Cursor also loads `.claude/skills/`, `.codex/skills/`, and th
 
 Skills are **not** imported by pasting a GitHub URL alone; for marketplace-style distribution you package skills in a [Cursor plugin](https://cursor.com/docs/plugins). For most teams, committing `.cursor/skills/` is enough.
 
-## What’s in this pack
+## What’s in this pack (31 skills)
 
 - **Anthropic official examples** (development, documents, MCP, testing, comms) — adapted wording for Cursor agents where needed.
-- **Curated engineering skills** (TDD, debugging, code review, git push hygiene, test fixing, security review) from community repos listed in SOURCES.md.
-- **Original:** `bulletproof-payment-gateway`, `production-ai-engineering`.
+- **Superpowers workflow** (brainstorming, plans, execution, subagents, parallel dispatch, TDD, debugging, code review, git worktrees) from [obra/superpowers](https://github.com/obra/superpowers).
+- **Curated engineering skills** (git push hygiene, test fixing, security review) from community repos listed in SOURCES.md.
+- **Short-form video** (TikTok/Reels/Shorts retention + caption animation) from [iart-ai/tiktok-video-skills](https://github.com/iart-ai/tiktok-video-skills).
+- **Original:** `bulletproof-payment-gateway`, `production-ai-engineering`, `token-budget`.
 
 ## Format
 
@@ -78,4 +82,4 @@ Skills follow the [Agent Skills specification](https://agentskills.io/specificat
 
 ## License
 
-Original skills in this pack (`bulletproof-payment-gateway`, `production-ai-engineering`) are MIT — see [LICENSE](LICENSE). Upstream skills retain their own licenses; see [SOURCES.md](SOURCES.md) and each skill’s `LICENSE.txt` where present.
+Original skills in this pack (`bulletproof-payment-gateway`, `production-ai-engineering`, `token-budget`) are MIT — see [LICENSE](LICENSE). Upstream skills retain their own licenses; see [SOURCES.md](SOURCES.md) and each skill’s `LICENSE.txt` where present.
